@@ -24,6 +24,6 @@ app.post('/api/form', (req, res) => {
   res.send(steps[stepId]);
 });
 
-app.listen(3001, () =>
-  console.log('Express server is running on localhost:3001'),
+app.listen(4001, () =>
+  console.log('Express server is running on localhost:4001'),
 );

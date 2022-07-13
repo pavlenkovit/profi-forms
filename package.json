@@ -2,7 +2,7 @@
   "name": "profi-forms",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:4001",
   "dependencies": {
     "@types/node": "^16.11.43",
     "@types/react": "^18.0.14",
@@ -16,7 +16,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon",
