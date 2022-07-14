@@ -1,8 +1,8 @@
-import {Element} from './Element';
 import React, {useEffect, useState} from 'react';
 import {useForm, FormProvider} from 'react-hook-form';
 import {Form, Title, Elements, Button, Footer} from './styled';
 import {ElementVariant} from './types';
+import {Element} from './Element';
 
 type Button = {
   type: 'secondary' | 'primary';

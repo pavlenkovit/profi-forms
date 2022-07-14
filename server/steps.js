@@ -1,19 +1,22 @@
+const {
+  RowElement,
+  TextElement,
+  InputElement,
+  RadioGroupElement,
+} = require('./elements');
+
 exports.specialization = {
   title: 'Какую специальность хотите подтвердить?',
   elements: [
-    {
-      id: 'kind-of-psychology',
-      type: 'RadioGroup',
-      items: [
-        {id: 'adult-psychology', value: 'Психология для взрослых'},
-        {id: 'kids-psychology', value: 'Детская психология'},
-        {
-          id: 'family-psychology',
-          value: 'Семейная психология и работа с парами',
-        },
-        {id: 'neuropsychology', value: 'Нейропсихология'},
-      ],
-    },
+    new RadioGroupElement('kind-of-psychology').setItems([
+      {id: 'adult-psychology', value: 'Психология для взрослых'},
+      {id: 'kids-psychology', value: 'Детская психология'},
+      {
+        id: 'family-psychology',
+        value: 'Семейная психология и работа с парами',
+      },
+      {id: 'neuropsychology', value: 'Нейропсихология'},
+    ]),
   ],
   navigations: [
     {
@@ -27,33 +30,17 @@ exports.specialization = {
 exports.education = {
   title: 'Какое у вас высшее образование?',
   elements: [
-    {
-      id: 'education-info-row',
-      type: 'Row',
-      element: {
-        id: 'education-info',
-        type: 'Text',
-        text: 'Чтобы откликаться на заказы по опсихологии, нужно психологическое или медицинское высшее образование.',
-      },
-    },
-    {
-      id: 'university-row',
-      type: 'Row',
-      element: {
-        id: 'university',
-        type: 'Input',
-        placeholder: 'ВУЗ',
-      },
-    },
-    {
-      id: 'speciality-row',
-      type: 'Row',
-      element: {
-        id: 'speciality',
-        type: 'Input',
-        placeholder: 'Специальность',
-      },
-    },
+    new RowElement('education-info-row').setElement(
+      new TextElement('education-info').setText(
+        'Чтобы откликаться на заказы по опсихологии, нужно психологическое или медицинское высшее образование.',
+      ),
+    ),
+    new RowElement('university-row').setElement(
+      new InputElement('university').setPlaceholder('ВУЗ'),
+    ),
+    new RowElement('speciality-row').setElement(
+      new InputElement('speciality').setPlaceholder('Специальность'),
+    ),
   ],
   navigations: [
     {
@@ -72,16 +59,12 @@ exports.education = {
 exports.experience = {
   title: 'Сколько часов индивидуальных консультаций вы провели?',
   elements: [
-    {
-      id: 'experience-list',
-      type: 'RadioGroup',
-      items: [
-        {id: 'none', value: 'Нет такого опыта'},
-        {id: 'less-than-100', value: 'Менее 100 часов'},
-        {id: 'from-100-to-250', value: 'От 100 до 250 часов'},
-        {id: 'more-than-250', value: 'Более 250 часов'},
-      ],
-    },
+    new RadioGroupElement('experience-list').setItems([
+      {id: 'none', value: 'Нет такого опыта'},
+      {id: 'less-than-100', value: 'Менее 100 часов'},
+      {id: 'from-100-to-250', value: 'От 100 до 250 часов'},
+      {id: 'more-than-250', value: 'Более 250 часов'},
+    ]),
   ],
   navigations: [
     {
@@ -91,7 +74,7 @@ exports.experience = {
     },
     {
       type: 'primary',
-      text: 'Отпарвить',
+      text: 'Отправить',
       stepId: 'final',
     },
   ],
@@ -100,10 +83,8 @@ exports.experience = {
 exports.final = {
   title: 'Проверяем информацию',
   elements: [
-    {
-      id: 'final-info',
-      type: 'Text',
-      text: 'Проверка может занять до трёх дней. Но обычно мы успеваем быстрее.',
-    },
+    new TextElement('final-info').setText(
+      'Проверка может занять до трёх дней. Но обычно мы успеваем быстрее.',
+    ),
   ],
 };
